@@ -1,110 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
 {% load static %}
 
-<html lang="en">
-<head>
-<title>Travello</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Travello template project">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
-<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
-</head>
-<body>
-
-<div class="super_container">
-	
-	<!-- Header -->
-
-	<header class="header">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="header_content d-flex flex-row align-items-center justify-content-start">
-						<div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
-							<div class="logo"><a href="/">Travello</a></div>
-							<nav class="main_nav">
-								<ul class="d-flex flex-row align-items-start justify-content-start">
-									<li class="active"><a href="index.html">Home</a></li>
-									<li><a href="{% static 'about.html' %}">About us</a></li>
-									<li><a href="#">Services</a></li>
-									<li><a href="{% static 'news.html' %}">News</a></li>
-									{% if user.is_authenticated %}
-									<h6> Hello {{user.username}} </h6>
-									<li><a href="accounts/logout">Logout</a> </li>
-									{% else %}
-									<li><a href="accounts/register">Register</a></li>
-									<li><a href="accounts/login">Login</a></li>
-									{% endif %}
-								</ul>
-							</nav>
-							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
-
-							<!-- Hamburger -->
-
-							<div class="hamburger ml-auto">
-								<i class="fa fa-bars" aria-hidden="true"></i>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="header_social d-flex flex-row align-items-center justify-content-start">
-			<ul class="d-flex flex-row align-items-start justify-content-start">
-				<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-			</ul>
-		</div>
-	</header>
-
-	<!-- Menu -->
-
-	<div class="menu">
-		<div class="menu_header d-flex flex-row align-items-center justify-content-start">
-			<div class="menu_logo"><a href="index.html">Travello</a></div>
-			<div class="menu_close_container ml-auto"><div class="menu_close"><div></div><div></div></div></div>
-		</div>
-		<div class="menu_content">
-			<ul>
-				<li><a href="inex.html">Home</a></li>
-				<li><a href="about.html">About us</a></li>
-				<li><a href="#">Services</a></li>
-				<li><a href="news.html">News</a></li>
-				<li><a href="contact.html">Contact</a></li>
-			</ul>
-		</div>
-		<div class="menu_social">
-			<div class="menu_phone ml-auto">Call us: 00-56 445 678 33</div>
-			<ul class="d-flex flex-row align-items-start justify-content-start">
-				<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
-				<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-			</ul>
-		</div>
-	</div>
-	
 	<!-- Home -->
 
 	<div class="home">
-		
+
 		<!-- Home Slider -->
 		<div class="home_slider_container">
 			<div class="owl-carousel owl-theme home_slider">
-				
+
 				<!-- Slide -->
 				<div class="owl-item">
 					<div class="background_image" style="background-image:url({% static 'images/home_slider.jpg' %})"></div>
@@ -174,14 +79,13 @@
 					<div class="home_search_container">
 						<div class="home_search_title">Search for your trip</div>
 						<div class="home_search_content">
-							<form action="search" class="home_search_form" id="home_search_form" method="POST">
-								{% csrf_token %}
+							<form action="#" class="home_search_form" id="home_search_form">
 								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-									<input type="text" name="city" class="search_input search_input_1" placeholder="City" required="required">
-									<input type="text" name="departure" class="search_input search_input_2" placeholder="Departure" required="required">
-									<input type="text" name="arrival" class="search_input search_input_3" placeholder="Arrival" required="required">
-									<input type="text" name="budget"  class="search_input search_input_4" placeholder="Budget" required="required">
-									<button class="home_search_button" value="searching">search</button>
+									<input type="text" class="search_input search_input_1" placeholder="City" required="required">
+									<input type="text" class="search_input search_input_2" placeholder="Departure" required="required">
+									<input type="text" class="search_input search_input_3" placeholder="Arrival" required="required">
+									<input type="text" class="search_input search_input_4" placeholder="Budget" required="required">
+									<button class="home_search_button">search</button>
 								</div>
 							</form>
 						</div>
@@ -236,7 +140,7 @@
 
 						</div>
 					</div>
-				</div>		
+				</div>
 			</div>
 		</div>
 	</div>
@@ -254,14 +158,13 @@
 			<div class="row destinations_row">
 				<div class="col">
 					<div class="destinations_container item_grid">
-
+                       {% for result in results %}
 						<!-- Destination -->
-	                   {% for result in results %}
 						<div class="destination item">
 							<div class="destination_image">
-								<img src="{{ result.img.url}}" alt="" style="width:400px;height:300px;">
+								<img src="{{ result.img.url}}" alt="">
 								{% if result.offer %}
-								   <div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+								<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
 								{% endif %}
 							</div>
 							<div class="destination_content">
@@ -270,66 +173,10 @@
 								<div class="destination_price">From ${{result.price}}</div>
 							</div>
 						</div>
-	                    {% endfor %}
+                        {% endfor %}
 						<!-- Destination -->
-<!--						<div class="destination item">-->
-<!--							<div class="destination_image">-->
-<!--								<img src="{% static 'images/destination_2.jpg' %}" alt="">-->
-<!--							</div>-->
-<!--							<div class="destination_content">-->
-<!--								<div class="destination_title"><a href="destinations.html">Indonesia</a></div>-->
-<!--								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>-->
-<!--								<div class="destination_price">From $679</div>-->
-<!--							</div>-->
-<!--						</div>-->
 
-						<!-- Destination -->
-<!--						<div class="destination item">-->
-<!--							<div class="destination_image">-->
-<!--								<img src="{% static 'images/destination_3.jpg' %}" alt="">-->
-<!--							</div>-->
-<!--							<div class="destination_content">-->
-<!--								<div class="destination_title"><a href="destinations.html">San Francisco</a></div>-->
-<!--								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>-->
-<!--								<div class="destination_price">From $679</div>-->
-<!--							</div>-->
-<!--						</div>-->
 
-						<!-- Destination -->
-<!--						<div class="destination item">-->
-<!--							<div class="destination_image">-->
-<!--								<img src="{% static 'images/destination_4.jpg' %}" alt="">-->
-<!--							</div>-->
-<!--							<div class="destination_content">-->
-<!--								<div class="destination_title"><a href="destinations.html">Paris</a></div>-->
-<!--								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>-->
-<!--								<div class="destination_price">From $679</div>-->
-<!--							</div>-->
-<!--						</div>-->
-
-						<!-- Destination -->
-<!--						<div class="destination item">-->
-<!--							<div class="destination_image">-->
-<!--								<img src="{% static 'images/destination_5.jpg' %}" alt="">-->
-<!--							</div>-->
-<!--							<div class="destination_content">-->
-<!--								<div class="destination_title"><a href="destinations.html">Phi Phi Island</a></div>-->
-<!--								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>-->
-<!--								<div class="destination_price">From $679</div>-->
-<!--							</div>-->
-<!--						</div>-->
-
-						<!-- Destination -->
-<!--						<div class="destination item">-->
-<!--							<div class="destination_image">-->
-<!--								<img src="{% static 'images/destination_6.jpg' %}" alt="">-->
-<!--							</div>-->
-<!--							<div class="destination_content">-->
-<!--								<div class="destination_title"><a href="destinations.html">Mykonos</a></div>-->
-<!--								<div class="destination_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>-->
-<!--								<div class="destination_price">From $679</div>-->
-<!--							</div>-->
-<!--						</div>-->
 
 					</div>
 				</div>
@@ -354,39 +201,39 @@
 					<!-- Testimonials Slider -->
 					<div class="testimonials_slider_container">
 						<div class="owl-carousel owl-theme testimonials_slider">
-							
+                           {% for data in test %}
 							<!-- Slide -->
 							<div class="owl-item text-center">
-								<div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. lobortis dolor. Cras placerat lectus a posuere aliquet. Curabitur quis vehicula odio.</div>
+								<div class="testimonial">{{ data.Text }}</div>
 								<div class="testimonial_author">
 									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
-										<div>john turner,</div>
-										<div>client</div>
+										<div>{{data.Name}}</div>
+										<div>{{data.Designation}}</div>
 									</div>
 								</div>
 							</div>
+							{% endfor %}
+<!--							&lt;!&ndash; Slide &ndash;&gt;-->
+<!--							<div class="owl-item text-center">-->
+<!--								<div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. lobortis dolor. Cras placerat lectus a posuere aliquet. Curabitur quis vehicula odio.</div>-->
+<!--								<div class="testimonial_author">-->
+<!--									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">-->
+<!--										<div>john turner,</div>-->
+<!--										<div>client</div>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
 
-							<!-- Slide -->
-							<div class="owl-item text-center">
-								<div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. lobortis dolor. Cras placerat lectus a posuere aliquet. Curabitur quis vehicula odio.</div>
-								<div class="testimonial_author">
-									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
-										<div>john turner,</div>
-										<div>client</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Slide -->
-							<div class="owl-item text-center">
-								<div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. lobortis dolor. Cras placerat lectus a posuere aliquet. Curabitur quis vehicula odio.</div>
-								<div class="testimonial_author">
-									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
-										<div>john turner,</div>
-										<div>client</div>
-									</div>
-								</div>
-							</div>
+<!--							&lt;!&ndash; Slide &ndash;&gt;-->
+<!--							<div class="owl-item text-center">-->
+<!--								<div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. lobortis dolor. Cras placerat lectus a posuere aliquet. Curabitur quis vehicula odio.</div>-->
+<!--								<div class="testimonial_author">-->
+<!--									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">-->
+<!--										<div>john turner,</div>-->
+<!--										<div>client</div>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--							</div>-->
 
 						</div>
 					</div>
@@ -409,66 +256,27 @@
 			<div class="row">
 				<div class="col-xl-8">
 					<div class="news_container">
-						
+                       {% for packages in package %}
 						<!-- News Post -->
 						<div class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
-							<div class="news_post_image"><img src="{% static 'images/news_1.jpg' %}" alt=""></div>
+							<div class="news_post_image"><img src="{{packages.image.url}}" alt=""></div>
 							<div class="news_post_content">
 								<div class="news_post_date d-flex flex-row align-items-end justify-content-start">
-									<div>02</div>
-									<div>june</div>
+									<div>{{packages.Date | date:"D d" }}</div>
+									<div>{{packages.Date | date:"F" }}</div>
 								</div>
-								<div class="news_post_title"><a href="#">Best tips to travel light</a></div>
+								<div class="news_post_title"><a href="#">{{packages.package_name}}</a></div>
 								<div class="news_post_category">
 									<ul>
-										<li><a href="#">lifestyle & travel</a></li>
+										<li><a href="#">{{packages.Company_name}}</a></li>
 									</ul>
 								</div>
 								<div class="news_post_text">
-									<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor massa et laoreet.</p>
+									<p>{{packages.package_desc}}</p>
 								</div>
 							</div>
 						</div>
-
-						<!-- News Post -->
-						<div class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
-							<div class="news_post_image"><img src="{% static 'images/news_2.jpg' %}" alt=""></div>
-							<div class="news_post_content">
-								<div class="news_post_date d-flex flex-row align-items-end justify-content-start">
-									<div>01</div>
-									<div>june</div>
-								</div>
-								<div class="news_post_title"><a href="#">Best tips to travel light</a></div>
-								<div class="news_post_category">
-									<ul>
-										<li><a href="#">lifestyle & travel</a></li>
-									</ul>
-								</div>
-								<div class="news_post_text">
-									<p>Tempor massa et laoreet malesuada. Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo.</p>
-								</div>
-							</div>
-						</div>
-
-						<!-- News Post -->
-						<div class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
-							<div class="news_post_image"><img src="{% static 'images/news_3.jpg' %}" alt=""></div>
-							<div class="news_post_content">
-								<div class="news_post_date d-flex flex-row align-items-end justify-content-start">
-									<div>29</div>
-									<div>may</div>
-								</div>
-								<div class="news_post_title"><a href="#">Best tips to travel light</a></div>
-								<div class="news_post_category">
-									<ul>
-										<li><a href="#">lifestyle & travel</a></li>
-									</ul>
-								</div>
-								<div class="news_post_text">
-									<p>Vivamus massa.Tempor massa et laoreet malesuada. Aliquam nulla nisl, accumsan sit amet mattis.</p>
-								</div>
-							</div>
-						</div>
+                        {% endfor %}
 
 					</div>
 				</div>
@@ -493,6 +301,7 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</div>
@@ -528,7 +337,7 @@
 						<!-- Footer Contact Item -->
 						<div class="col-xl-4 footer_contact_col">
 							<div class="footer_contact_item d-flex flex-column align-items-center justify-content-start text-center">
-								<div class="footer_contact_icon"><img src="{% static 'images/sign.svg' %}" alt=""></div>
+								<div class="footer_contact_icon"><img src="{% static 'images/sign.svg" alt=""></div>
 								<div class="footer_contact_title">give us a call</div>
 								<div class="footer_contact_list">
 									<ul>
@@ -587,3 +396,5 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="{% static 'js/custom.js' %}"></script>
 </body>
 </html>
+
+{% endblock %}

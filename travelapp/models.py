@@ -15,5 +15,9 @@ class Packages(models.Model):
     package_name=models.CharField(max_length=100)
     Company_name=models.CharField(max_length=100)
     package_desc=models.TextField()
-    Discound_percentage = models.IntegerField()
+    create_date = models.DateTimeField(auto_now_add=True)
 
+class Testimonials(models.Model):
+    Name = models.CharField(max_length=100)
+    Text = models.TextField()
+    Designation = models.CharField(max_length=100)
