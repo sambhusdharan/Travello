@@ -48,14 +48,14 @@ def logout(request):
     return redirect('/')
 
 
-def search(request):
-    if request.method == "POST":
-        city = request.POST['city']
-        departure = request.POST['departure']
-        arrival = request.POST['arrival']
-        budget = request.POST['budget']
-        use = User.objects.create_user(city_search=city,departure_search=departure,arrival_search=arrival,budget_search=budget)
-        use.save()
-        return redirect('/')
-    else:
-        return render(request, '/')
+# def search(request):
+#     if request.method == "POST":
+#         city = request.POST['city']
+#         departure = request.POST['departure']
+#         arrival = request.POST['arrival']
+#         budget = request.POST['budget']
+#         use = User.objects.create_user(city_search=city,departure_search=departure,arrival_search=arrival,budget_search=budget)
+#         use.save()
+#         return redirect('/')
+#     else:
+#         return render(request, '/')
