@@ -48,6 +48,9 @@ def logout(request):
     return redirect('/')
 
 
+def News(request):
+    return render(request,'News.html')
+
 # def search(request):
 #     if request.method == "POST":
 #         city = request.POST['city']

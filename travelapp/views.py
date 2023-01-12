@@ -1,13 +1,7 @@
-# from django.http import HttpResponse
-
-from django.shortcuts import render
-
-# Create your views here.
-# def fun(request):
-#     return HttpResponse("hello world")
 
 from django.shortcuts import render
 from . models import *
+from accounts .models import *
 from django.db.models import Q
 def home(request):
     obj=place.objects.all().order_by("-created_date")
@@ -73,4 +67,5 @@ def fullview(request,id):
     #     arrival=request.GET['Arrival']
     #     taking=place.objects.all().filter(Q(model__iexact=arrival)|Q)
 def About(request):
-    return render(request,"about.html")
+    Team=team.objects.all().order_by("-created_date")
+    return render(request,"about.html",{'team':Team})

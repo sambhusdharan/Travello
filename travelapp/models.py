@@ -37,3 +37,5 @@ class Testimonials(models.Model):
     Name = models.CharField(max_length=100)
     Text = models.TextField()
     Designation = models.CharField(max_length=100)
+
+
