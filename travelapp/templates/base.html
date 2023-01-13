@@ -32,12 +32,14 @@
 								<ul class="d-flex flex-row align-items-start justify-content-start">
 									<li class="active"><a href="{% url 'fun' %}">Home</a></li>
 									<li><a href="{% url 'About' %} ">About us</a></li>
-									<li><a href="#">Services</a></li>
+									<li><a href="{% url 'services' %}">Services</a></li>
 									<li><a href="{% url 'news' %}">News</a></li>
 									<li><a href="contact.html">Contact</a></li>
 								</ul>
 							</nav>
-							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
+							<div class="header_phone ml-auto"><a href="{% url 'login' %}" style="color:white">Login</a></div>
+							<div class="header_phone ml-auto"><a href="{% url 'register' %}" style="color:white" >Register</a></div>
+<!--							<div class="header_phone ml-auto"><li></li></div>-->
 
 							<!-- Hamburger -->
 

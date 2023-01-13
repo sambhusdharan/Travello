@@ -4,7 +4,7 @@ from django.contrib.auth.models import auth,User
 # Create your views here.
 def register(request):
      if request.method=="POST":
-          firstname=request.POST['firstname']
+          firstname = request.POST['firstname']
           lastname = request.POST['lastname']
           email = request.POST['email']
           username = request.POST['username']
@@ -21,6 +21,7 @@ def register(request):
                   user=User.objects.create_user(first_name=firstname,last_name=lastname,email=email,username=username,password=password1)
                   user.save()
                   print("user created")
+                  return redirect('fun')
           else:
              messages.info(request,"password not matched")
              return redirect('register')
@@ -31,7 +32,7 @@ def register(request):
 
 def login(request):
     if request.method=='POST':
-        username=request.POST['username']
+        username= request.POST['username']
         password=request.POST['password']
         user=auth.authenticate(username=username,password=password)
         if user is not None:
@@ -51,6 +52,10 @@ def logout(request):
 def News(request):
     return render(request,'News.html')
 
+
+
+def services(request):
+    return render(request,'services.html')
 # def search(request):
 #     if request.method == "POST":
 #         city = request.POST['city']
