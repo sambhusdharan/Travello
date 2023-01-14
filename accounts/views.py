@@ -56,6 +56,10 @@ def News(request):
 
 def services(request):
     return render(request,'services.html')
+
+def contact(request):
+    return render(request,'contacts.html')
+
 # def search(request):
 #     if request.method == "POST":
 #         city = request.POST['city']
