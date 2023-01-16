@@ -31,11 +31,46 @@
 							<div class="logo"><a href="index.html">Travello</a></div>
 							<nav class="main_nav">
 								<ul class="d-flex flex-row align-items-start justify-content-start">
-									<li><a href="{% url 'fun' %}">Home</a></li>
-									<li><a href="{% url 'About' %}">About us</a></li>
-									<li><a href="{% url 'services' %}">Services</a></li>
-									<li><a href="{% url 'news' %}">News</a></li>
-									<li class="active"><a href="{% url 'contact' %}">Contact</a></li>
+									<li
+									{% if '/' == request.path %}
+									   class="active"
+						             {% else %}
+						              class="inactive"
+						             {% endif %}
+
+									><a href="{% url 'fun' %}">Home</a></li>
+									<li
+									{% if '/about/' == request.path %}
+									   class="active"
+						             {% else %}
+						              class="inactive"
+						             {% endif %}
+
+									><a href="{% url 'About' %}">About us</a></li>
+									<li
+									{% if '/accounts/services/' == request.path %}
+									   class="active"
+						             {% else %}
+						              class="inactive"
+						             {% endif %}
+
+									><a href="{% url 'services' %}">Services</a></li>
+									<li
+									{% if '/accounts/news/' == request.path %}
+									   class="active"
+						             {% else %}
+						              class="inactive"
+						             {% endif %}
+
+									><a href="{% url 'news' %}">News</a></li>
+									<li
+									{% if '/accounts/contact/' == request.path %}
+									   class="active"
+						             {% else %}
+						              class="inactive"
+						             {% endif %}
+
+									><a href="{% url 'contact' %}">Contact</a></li>
 								</ul>
 							</nav>
 							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
@@ -112,7 +147,7 @@
 					<div class="contact_content">
 						<div class="contact_title">Get in touch with us</div>
 						<div class="contact_text">
-							<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor massa et laoreet. Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.</p>
+							<p> Inquiries can be made at any time through our email or by making a call.24 x 7 services will always be provided from our part</p>
 						</div>
 						<div class="contact_list">
 							<ul>
@@ -122,11 +157,11 @@
 								</li>
 								<li>
 									<div>phone:</div>
-									<div>+53 345 7953 32453</div>
+									<div>+91 9555673428</div>
 								</li>
 								<li>
 									<div>email:</div>
-									<div>yourmail@gmail.com</div>
+									<div>travello@gmail.com</div>
 								</li>
 							</ul>
 						</div>

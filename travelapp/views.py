@@ -1,4 +1,4 @@
-
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from . models import *
 from accounts .models import *
@@ -57,7 +57,7 @@ def search(request):
         #             location = place.objects.all().filter(Q(name__icontains=Place)|Q(Arrival__icontains=arrival)|Q(Departure__icontains=departure)|Q(price__icontains=Budget))
     print(location)
     return render(request, 'destination.html', {'destination': location})
-
+@login_required(login_url='login')
 def fullview(request,id):
     data=place.objects.all().filter(id=id)
     return render(request,"detail.html",{"destination":data})

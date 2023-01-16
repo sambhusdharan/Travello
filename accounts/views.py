@@ -73,22 +73,33 @@ def contact(request):
         subject = request.POST['Subject']
         message = request.POST['Message']
         store = info.objects.create(name=name,email=email,subject=subject,message=message)
-        # admin_detail=User.objects.get(is_superuser=True)
-        # admin_email=admin_detail.email
-        # send_mail(
-        #     'You have a new travel inquiry',
-        #     ' with Name: ' + name + ' and email: '+ email + ' Please login to admin pannel for more detail' ,
-        #     'sambhusdharan@gmail.com', #from email address
-        #     [admin_email], #To email address
-        #     fail_silently=False,
-        #          )
+        admin_detail=User.objects.get(is_superuser=True)
+        admin_email=admin_detail.email
+        send_mail(
+            'You have a new travel inquiry',
+            ' Check out new inquiry with Name: ' + name + ' and email: '+ email + ' Please login to admin pannel for more detail' ,
+            'myweddingcorp23@gmail.com', #from email address
+            [admin_email], #To email address
+            fail_silently=False,
+                 )
 
         store.save()
     return render(request,'contacts.html')
 
-
-
-
+def footer(request):
+    if request.method == 'POST':
+      name = request.POST['name']
+      email = request.POST['email']
+      admin_detail=User.objects.get(is_superuser=True)
+      admin_email=admin_detail.email
+      send_mail(
+        'You have a new subscribtion',
+        'Have a new subscription !! with Name: ' + name + ' and email: '+ email + ' Please login to admin pannel for more detail' ,
+        'myweddingcorp23@gmail.com', #from email address
+        [admin_email], #To email address
+        fail_silently=False,
+             )
+    return redirect('/')
 # def search(request):
 #     if request.method == "POST":
 #         city = request.POST['city']
@@ -100,3 +111,8 @@ def contact(request):
 #         return redirect('/')
 #     else:
 #         return render(request, '/')
+
+def logout(request):
+    if request.method == 'POST':
+     auth.logout(request)
+    return redirect('login')

@@ -30,11 +30,43 @@
 							<div class="logo"><a href="index.html">Travello</a></div>
 							<nav class="main_nav">
 								<ul class="d-flex flex-row align-items-start justify-content-start">
-									<li><a href="{% url 'fun' %}">Home</a></li>
-									<li class="active"><a href="{% url 'About' %}">About us</a></li>
-									<li><a href="{% url 'services' %}">Services</a></li>
-									<li><a href="{% url 'news' %}">News</a></li>
-									<li><a href="{% url 'contact' %}">Contact</a></li>
+									<li
+									{% if '/' == request.path %}
+									   class="active"
+									{% else %}
+						              class="inactive"
+									{% endif %}
+
+									><a href="{% url 'fun' %}">Home</a></li>
+									<li
+									{% if '/about/' == request.path %}
+									  class="active"
+									{% else %}
+									  class="inactive"
+									{% endif %}
+									><a href="{% url 'About' %}">About us</a></li>
+									<li
+									{% if '/accounts/services/' == request.path %}
+									  class="active"
+									{% else %}
+									  class="inactive"
+									{% endif %}
+									><a href="{% url 'services' %}">Services</a></li>
+									<li
+									{% if '/accounts/news/' == request.path %}
+									 class="active"
+									{% else %}
+									  class="inactive"
+									{% endif %}
+									><a href="{% url 'news' %}">News</a></li>
+									<li
+									{% if '/accounts/contact/' == request.path %}
+									 class="active"
+									{% else %}
+									 class="inactive"
+									{% endif %}
+
+									><a href="{% url 'contact' %}">Contact</a></li>
 								</ul>
 							</nav>
 							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
@@ -135,9 +167,9 @@
 			<div class="row about_row">
 				<div class="col-lg-6">
 					<div class="about_content">
-						<div class="text_highlight">Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor massa et laoreet .Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+						<div class="text_highlight">Travel is the movement of people between distant geographical locations. Travel can be done by foot, bicycle, automobile, train, boat, bus, airplane, ship or other means, with or without luggage, and can be one way or round trip. Travel can also include relatively short stays between successive movements, as in the case of tourism.</div>
 						<div class="about_text">
-							<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor massa et laoreet .Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu laoreet ante, sollicitudin volutpat quam. Vestibulum posuere malesuada ultrices. In pulvinar rhoncus lacus at aliquet. Nunc vitae lacus varius, auctor nisi sit amet, consectetur mauris. Curabitur sodales semper est, vel faucibus urna laoreet vel. Ut justo diam, sodales non pulvinar at, vulputate quis neque. Etiam aliquam purus vel ultricies consequat.</p>
+							<p>Travel dates back to antiquity where wealthy Greeks and Romans would travel for leisure to their summer homes and villas in cities such as Pompeii and Baiae. While early travel tended to be slower, more dangerous, and more dominated by trade and migration, cultural and technological advances over many years have tended to mean that travel has become easier and more accessible. Humankind has come a long way in transportation since Christopher Columbus sailed to the new world from Spain in 1492, an expedition which took over 10 weeks to arrive at the final destination; to the 21st century when aircraft allows travel from Spain to the United States overnight.</p>
 						</div>
 						<div class="button about_button"><a href="#">read more</a></div>
 					</div>

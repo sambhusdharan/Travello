@@ -30,11 +30,46 @@
 							<div class="logo"><a href="index.html">Travello</a></div>
 							<nav class="main_nav">
 								<ul class="d-flex flex-row align-items-start justify-content-start">
-									<li><a href="{% url 'fun' %}">Home</a></li>
-									<li><a href="{% url 'About' %}">About us</a></li>
-									<li><a href="{% url 'services' %}">Services</a></li>
-									<li class="active"><a href="{% url 'news' %}">News</a></li>
-									<li><a href="{% url 'contact' %}">Contact</a></li>
+									<li
+									{% if '/' == request.path %}
+									   class="active"
+									{% else %}
+						              class="inactive"
+									{% endif %}
+
+									><a href="{% url 'fun' %}">Home</a></li>
+									<li
+									{% if '/about/' == request.path %}
+									   class="active"
+									{% else %}
+						              class="inactive"
+									{% endif %}
+
+									><a href="{% url 'About' %}">About us</a></li>
+									<li
+									{% if '/accounts/services/' == request.path %}
+									   class="active"
+									{% else %}
+						              class="inactive"
+									{% endif %}
+
+									><a href="{% url 'services' %}">Services</a></li>
+									<li
+									{% if '/accounts/news/' == request.path %}
+									   class="active"
+									{% else %}
+						              class="inactive"
+									{% endif %}
+
+									><a href="{% url 'news' %}">News</a></li>
+									<li
+									{% if '/accounts/contact/' == request.path %}
+									   class="active"
+									{% else %}
+						              class="inactive"
+									{% endif %}
+
+									><a href="{% url 'contact' %}">Contact</a></li>
 								</ul>
 							</nav>
 							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>

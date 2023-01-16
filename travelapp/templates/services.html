@@ -31,11 +31,41 @@
 							<div class="logo"><a href="index.html">Travello</a></div>
 							<nav class="main_nav">
 								<ul class="d-flex flex-row align-items-start justify-content-start">
-									<li class="active"><a href="{% url 'fun' %}">Home</a></li>
-									<li><a href="{% url 'About' %}">About us</a></li>
-									<li><a href="{% url 'services' %}">Services</a></li>
-									<li><a href="{% url 'news' %}">News</a></li>
-									<li><a href="{% url 'contact' %}">Contact</a></li>
+									<li
+									{% if '/' == request.path %}
+									   class="active"
+									{% else %}
+						              class="inactive"
+									{% endif %}
+									><a href="{% url 'fun' %}">Home</a></li>
+									<li
+									{% if '/about/' == request.path %}
+									  class="active"
+									{% else %}
+									  class="inactive"
+									{% endif %}
+									><a href="{% url 'About' %}">About us</a></li>
+									<li
+									{% if '/accounts/services/' == request.path %}
+									  class="active"
+									{% else %}
+									  class="inactive"
+									{% endif %}
+									><a href="{% url 'services' %}">Services</a></li>
+									<li
+									{% if '/accounts/news/' == request.path %}
+									 class="active"
+									{% else %}
+									  class="inactive"
+									{% endif %}
+									><a href="{% url 'news' %}">News</a></li>
+									<li
+									{% if '/accounts/contact/' == request.path %}
+									 class="active"
+									{% else %}
+									 class="inactive"
+									{% endif %}
+									><a href="{% url 'contact' %}">Contact</a></li>
 								</ul>
 							</nav>
 							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
@@ -111,46 +141,46 @@
 					<!-- Buttons -->
 
 					<div class="buttons">
-						<div class="elements_title">Buttons</div>
+<!--						<div class="elements_title">Buttons</div>-->
 						<div class="buttons_container d-flex flex-row align-items-start justify-content-start">
-							<div class="button"><a href="#">send</a></div>
-							<div class="button button_2"><a href="#">send</a></div>
-							<div class="button button_3"><a href="#">send</a></div>
+<!--							<div class="button"><a href="#">send</a></div>-->
+<!--							<div class="button button_2"><a href="#">send</a></div>-->
+<!--							<div class="button button_3"><a href="#">send</a></div>-->
 						</div>
 					</div>
 
 					<!-- Accordions & Tabs -->
 
 					<div class="elements_accordions_tabs">
-						<div class="elements_title">Accordions & Tabs</div>
+						<div class="elements_title">Services</div>
 						<div class="row">
 							<div class="col-lg-6">
 								<div class="elements_accordions">
 									<div class="accordions">
 
 										<div class="accordion_container">
-											<div class="accordion d-flex flex-row align-items-center"><div>Donec ut feugiat lacus. Vivamus posuere metus vitae volutpat.</div></div>
+											<div class="accordion d-flex flex-row align-items-center"><div>Hotel and Homes</div></div>
 											<div class="accordion_panel">
 												<div>
-													<p>Odio vestibulum est mattis.Donec ut feugiat lacus. Vivamus posuere metus vitae volutpat vulputate. Nunc imperdiet velit nisl, non volutpat lectus. Donec ut feugiat lacus. Vivamus posuere metus vitae volutpat vulputate. Nunc imperdiet velit nisl, non volutpat lectus.</p>
+													<p> A hotel is an establishment that provides paid lodging on a short-term basis. Facilities provided inside a hotel room may range from a modest-quality mattress in a small room to large suites with bigger, higher-quality beds, a dresser, a refrigerator and other kitchen facilities, upholstered chairs, a flat screen television, and en-suite bathrooms. Small, lower-priced hotels may offer only the most basic guest services and facilities.</p>
 												</div>
 											</div>
 										</div>
 
 										<div class="accordion_container">
-											<div class="accordion d-flex flex-row align-items-center"><div>Nunc imperdiet velit nisl, non volutpat lectus </div></div>
+											<div class="accordion d-flex flex-row align-items-center"><div>Flight and Guidance </div></div>
 											<div class="accordion_panel">
 												<div>
-													<p>Odio vestibulum est mattis.Donec ut feugiat lacus. Vivamus posuere metus vitae volutpat vulputate. Nunc imperdiet velit nisl, non volutpat lectus. Donec ut feugiat lacus. Vivamus posuere metus vitae volutpat vulputate. Nunc imperdiet velit nisl, non volutpat lectus.</p>
+													<p>The Forum’s Industry Community for Aviation, Travel and Tourism is a high-level community of peers dedicated to ensuring the long-term sustainability of our industry and society. Chief executives and chairs constitute the Industry Governors, who provide leadership, define the industry agenda and drive change</p>
 												</div>
 											</div>
 										</div>
 
 										<div class="accordion_container">
-											<div class="accordion d-flex flex-row align-items-center active"><div>Donec ut feugiat lacus. Vivamus posuere metus vitae volutpat.</div></div>
+											<div class="accordion d-flex flex-row align-items-center active"><div>coupons and deals</div></div>
 											<div class="accordion_panel">
 												<div>
-													<p>Odio vestibulum est mattis.Donec ut feugiat lacus. Vivamus posuere metus vitae volutpat vulputate. Nunc imperdiet velit nisl, non volutpat lectus. Donec ut feugiat lacus. Vivamus posuere metus vitae volutpat vulputate. Nunc imperdiet velit nisl, non volutpat lectus.</p>
+													<p>Read the Latest Reviews, Find the Lowest Prices & Save Money on Tripadvisor. Hidden Gems. Amazing Experiences. Easy price comparison. Vacation Rentals. Millions of hotel reviews. Candid traveller photos. Tours, Attractions + More. Best Places to Eat</p>
 												</div>
 											</div>
 										</div>
@@ -162,29 +192,29 @@
 								<div class="tabs">
 									<div class="tabs_container">
 										<div class="tabs d-flex flex-row align-items-center justify-content-start flex-wrap">
-											<div class="tab">Donec ut feugiat lacus</div>
-											<div class="tab">Volutpat lectus</div>
-											<div class="tab active">Vivamus posuere</div>
+											<div class="tab">Offers</div>
+											<div class="tab">Food</div>
+											<div class="tab active">Activities</div>
 										</div>
 										<div class="tab_panels">
 											<div class="tab_panel">
 												<div class="tab_panel_content">
 													<div class="tab_text">
-														<p>Odio vestibulum est mattis.Donec ut feugiat lacus. Vivamus posuere metus vitae volutpat vulputate. Nunc imperdiet velit nisl, non volutpat lectus. Donec ut feugiat lacus. Vivamus posuere metus vitae volutpat vulputate. Nunc imperdiet velit nisl, non volutpat lectus.</p>
+														<p>Best offers are normally available at the time of march -june and have a 30-50% offer for most of the packages and normally all packages are available at 20% off </p>
 													</div>
 												</div>
 											</div>
 											<div class="tab_panel">
 												<div class="tab_panel_content">
 													<div class="tab_text">
-														<p>Odio vestibulum est mattis.Donec ut feugiat lacus. Vivamus posuere metus vitae volutpat vulputate. Nunc imperdiet velit nisl, non volutpat lectus. Donec ut feugiat lacus. Vivamus posuere metus vitae volutpat vulputate. Nunc imperdiet velit nisl, non volutpat lectus.</p>
+														<p>Food for most of the packages including ,breakfast,lunch,Dinner are taken care of at the hotel itself.Its included in the package and for additional food extra charges will be added</p>
 													</div>
 												</div>
 											</div>
 											<div class="tab_panel active">
 												<div class="tab_panel_content">
 													<div class="tab_text">
-														<p>Odio vestibulum est mattis.Donec ut feugiat lacus. Vivamus posuere metus vitae volutpat vulputate. Nunc imperdiet velit nisl, non volutpat lectus. Donec ut feugiat lacus. Vivamus posuere metus vitae volutpat vulputate. Nunc imperdiet velit nisl, non volutpat lectus.</p>
+														<p>For every package atleast 2 packages are there.The packages can be customized as per the travellers need.Based on the size of the package activities also varies.</p>
 													</div>
 												</div>
 											</div>
