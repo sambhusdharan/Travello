@@ -3,6 +3,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.models import auth,User
 from .models import *
+from travelapp.models import *
 from django.core.paginator import Paginator
 # Create your views here.
 def register(request):
@@ -53,13 +54,14 @@ def logout(request):
 
 
 def news(request):
+    pack=Packages.objects.all().order_by('-create_date')
     data=News.objects.all().order_by('-create_date')
     paginator= Paginator(data,3)
     page = request.GET.get('page')
     print(page)
     paged_news = paginator.get_page(page)
     print("paged_news",paged_news)
-    return render(request,'News.html',{'news':paged_news})
+    return render(request,'News.html',{'news':paged_news,'package':pack})
 
 
 
