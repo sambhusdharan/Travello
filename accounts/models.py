@@ -25,3 +25,13 @@ class News(models.Model):
     Company_name = models.CharField(max_length=100)
     package_desc = models.TextField()
     create_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.package_name
+
+class info(models.Model):
+    name=models.CharField(max_length=100)
+    email=models.EmailField(max_length=100)
+    subject=models.TextField()
+    message=models.TextField()
+

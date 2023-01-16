@@ -1,6 +1,9 @@
+from django.core.mail import send_mail
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.models import auth,User
+from .models import *
+from django.core.paginator import Paginator
 # Create your views here.
 def register(request):
      if request.method=="POST":
@@ -49,8 +52,14 @@ def logout(request):
     return redirect('/')
 
 
-def News(request):
-    return render(request,'News.html')
+def news(request):
+    data=News.objects.all().order_by('-create_date')
+    paginator= Paginator(data,3)
+    page = request.GET.get('page')
+    print(page)
+    paged_news = paginator.get_page(page)
+    print("paged_news",paged_news)
+    return render(request,'News.html',{'news':paged_news})
 
 
 
@@ -58,7 +67,27 @@ def services(request):
     return render(request,'services.html')
 
 def contact(request):
+    if request.method == 'POST':
+        name = request.POST['Name']
+        email = request.POST['Email']
+        subject = request.POST['Subject']
+        message = request.POST['Message']
+        store = info.objects.create(name=name,email=email,subject=subject,message=message)
+        # admin_detail=User.objects.get(is_superuser=True)
+        # admin_email=admin_detail.email
+        # send_mail(
+        #     'You have a new travel inquiry',
+        #     ' with Name: ' + name + ' and email: '+ email + ' Please login to admin pannel for more detail' ,
+        #     'sambhusdharan@gmail.com', #from email address
+        #     [admin_email], #To email address
+        #     fail_silently=False,
+        #          )
+
+        store.save()
     return render(request,'contacts.html')
+
+
+
 
 # def search(request):
 #     if request.method == "POST":
