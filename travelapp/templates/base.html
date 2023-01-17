@@ -65,7 +65,7 @@
 									 class="inactive"
 									{% endif %}
 									><a href="{% url 'contact' %}">Contact</a></li><br>
-									{% if user.is_authenticated %}
+									{% if request.user.id %}
 										<li
 										{% if '/accounts/logout' == request.path %}
 										 class="active"
