@@ -66,9 +66,42 @@
 									 class="inactive"
 									{% endif %}
 									><a href="{% url 'contact' %}">Contact</a></li>
+
+									{% if request.user.id %}
+										<li
+										{% if '/accounts/logout' == request.path %}
+										 class="active"
+										{% else %}
+										 class="inactive"
+										{% endif %}
+
+										><a href="{% url 'logout' %}">Logout</a></li>
+										</li>
+									{% else %}
+										<li
+										{% if '/accounts/login' == request.path %}
+										 class="active"
+										{% else %}
+										 class="inactive"
+										{% endif %}
+
+										><a href="{% url 'login' %}">Login</a></li>
+										<li
+										{% if '/accounts/register' == request.path %}
+										 class="active"
+										{% else %}
+										 class="inactive"
+										{% endif %}
+
+										><a href="{% url 'register' %}">Register</a></li>
+									{% endif %}
+
+
 								</ul>
 							</nav>
-							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
+							{% if request.user.id %}
+							<div class="header_phone ml-auto"> Hi, {{user.username}} </div>
+                            {% endif %}
 
 							<!-- Hamburger -->
 
@@ -236,8 +269,8 @@
 								<!-- Loader -->
 								<div class="loader" data-perc="0.75">
 									<div class="loader_content">
-										<div class="loader_title">photos taken</div>
-										<div class="loader_subtitle">Etiam nec odio vestibulum est.</div>
+										<div class="loader_title">Photos taken</div>
+<!--										<div class="loader_subtitle">Etiam nec odio vestibulum est.</div>-->
 									</div>
 								</div>
 							</div>
@@ -245,8 +278,8 @@
 								<!-- Loader -->
 								<div class="loader" data-perc="0.83">
 									<div class="loader_content">
-										<div class="loader_title">km walked</div>
-										<div class="loader_subtitle">Odio vestibulum est mattis.</div>
+										<div class="loader_title">People travelled</div>
+<!--										<div class="loader_subtitle">Odio vestibulum est mattis.</div>-->
 									</div>
 								</div>
 							</div>
@@ -254,8 +287,8 @@
 								<!-- Loader -->
 								<div class="loader" data-perc="0.25">
 									<div class="loader_content">
-										<div class="loader_title">cities visited</div>
-										<div class="loader_subtitle">Vestibulum est mattis effic.</div>
+										<div class="loader_title">Activities</div>
+<!--										<div class="loader_subtitle">Vestibulum est mattis effic.</div>-->
 									</div>
 								</div>
 							</div>
@@ -263,8 +296,8 @@
 								<!-- Loader -->
 								<div class="loader" data-perc="0.95">
 									<div class="loader_content">
-										<div class="loader_title">cruises</div>
-										<div class="loader_subtitle">Vestibulum est mattis effic.</div>
+										<div class="loader_title">Places Travelled</div>
+<!--										<div class="loader_subtitle">Vestibulum est mattis effic.</div>-->
 									</div>
 								</div>
 							</div>
@@ -281,8 +314,8 @@
 							<div class="col-lg-3 milestone_col">
 								<div class="milestone text-center">
 									<div class="milestone_icon"><img src="{% static 'images/mountain.svg' %}" alt=""></div>
-									<div class="milestone_counter" data-end-value="17">0</div>
-									<div class="milestone_text">Online Courses</div>
+									<div class="milestone_counter" data-end-value="570">0</div>
+									<div class="milestone_text">Places</div>
 								</div>
 							</div>
 
@@ -291,7 +324,7 @@
 								<div class="milestone text-center">
 									<div class="milestone_icon"><img src="{% static 'images/island.svg' %}" alt=""></div>
 									<div class="milestone_counter" data-end-value="213">0</div>
-									<div class="milestone_text">Students</div>
+									<div class="milestone_text">Activities</div>
 								</div>
 							</div>
 
@@ -300,7 +333,7 @@
 								<div class="milestone text-center">
 									<div class="milestone_icon"><img src="{% static 'images/camera.svg' %}" alt=""></div>
 									<div class="milestone_counter" data-end-value="11923">0</div>
-									<div class="milestone_text">Teachers</div>
+									<div class="milestone_text">Bookings done</div>
 								</div>
 							</div>
 
@@ -308,7 +341,7 @@
 							<div class="col-lg-3 milestone_col">
 								<div class="milestone text-center">
 									<div class="milestone_icon"><img src="{% static 'images/boat.svg' %}" alt=""></div>
-									<div class="milestone_counter" data-end-value="15">0</div>
+									<div class="milestone_counter" data-end-value="175">0</div>
 									<div class="milestone_text">Countries</div>
 								</div>
 							</div>
@@ -329,7 +362,7 @@
 									<div class="intro_icon"><img src="{% static 'images/beach.svg' %}" alt=""></div>
 									<div class="intro_content">
 										<div class="intro_title">Top Destinations</div>
-										<div class="intro_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+										<div class="intro_subtitle"><p>Lets visit top destinations in the world</p></div>
 									</div>
 								</div>
 							</div>
@@ -340,7 +373,7 @@
 									<div class="intro_icon"><img src="{% static 'images/wallet.svg' %}" alt=""></div>
 									<div class="intro_content">
 										<div class="intro_title">The Best Prices</div>
-										<div class="intro_subtitle"><p>Sollicitudin mauris lobortis in.</p></div>
+										<div class="intro_subtitle"><p>Packages are at 20% off HURRY UP !!</p></div>
 									</div>
 								</div>
 							</div>
@@ -351,7 +384,7 @@
 									<div class="intro_icon"><img src="{% static 'images/suitcase.svg' %}" alt=""></div>
 									<div class="intro_content">
 										<div class="intro_title">Amazing Services</div>
-										<div class="intro_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
+										<div class="intro_subtitle"><p>We will be always there for any help !</p></div>
 									</div>
 								</div>
 							</div>

@@ -70,9 +70,42 @@
 									{% endif %}
 
 									><a href="{% url 'contact' %}">Contact</a></li>
+
+									{% if request.user.id %}
+										<li
+										{% if '/accounts/logout' == request.path %}
+										 class="active"
+										{% else %}
+										 class="inactive"
+										{% endif %}
+
+										><a href="{% url 'logout' %}">Logout</a></li>
+										</li>
+									{% else %}
+										<li
+										{% if '/accounts/login' == request.path %}
+										 class="active"
+										{% else %}
+										 class="inactive"
+										{% endif %}
+
+										><a href="{% url 'login' %}">Login</a></li>
+										<li
+										{% if '/accounts/register' == request.path %}
+										 class="active"
+										{% else %}
+										 class="inactive"
+										{% endif %}
+
+										><a href="{% url 'register' %}">Register</a></li>
+									{% endif %}
+
+
 								</ul>
 							</nav>
-							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
+							{% if request.user.id %}
+							<div class="header_phone ml-auto"> Hi, {{user.username}} </div>
+                            {% endif %}
 
 							<!-- Hamburger -->
 
@@ -162,7 +195,7 @@
 								<div class="news_post_text">
 									<p>{{news.package_desc}}</p>
 								</div>
-								<div class="news_post_link"><a href="#">Read More</a></div>
+<!--								<div class="news_post_link"><a href="#">Read More</a></div>-->
 							</div>
 						</div>
 						{% endfor %}
@@ -207,7 +240,7 @@
 
 						<!-- Latest News -->
 						<div class="latest">
-							<div class="sidebar_title">Latest News</div>
+							<div class="sidebar_title">Latest packages</div>
 							<div class="latest_container">
                                {% for packages in package %}
 								<!-- Latest Post -->

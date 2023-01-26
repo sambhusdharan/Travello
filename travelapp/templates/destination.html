@@ -70,9 +70,39 @@
 									{% endif %}
 
 									><a href="{% url 'contact' %}">Contact</a></li>
+									{% if request.user.id %}
+										<li
+										{% if '/accounts/logout' == request.path %}
+										 class="active"
+										{% else %}
+										 class="inactive"
+										{% endif %}
+
+										><a href="{% url 'logout' %}">Logout</a></li>
+										</li>
+									{% else %}
+										<li
+										{% if '/accounts/login' == request.path %}
+										 class="active"
+										{% else %}
+										 class="inactive"
+										{% endif %}
+
+										><a href="{% url 'login' %}">Login</a></li>
+										<li
+										{% if '/accounts/register' == request.path %}
+										 class="active"
+										{% else %}
+										 class="inactive"
+										{% endif %}
+
+										><a href="{% url 'register' %}">Register</a></li>
+									{% endif %}
+
+
 								</ul>
 							</nav>
-							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
+<!--							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>-->
 
 							<!-- Hamburger -->
 
@@ -187,7 +217,7 @@
 								{% endif %}
 							</div>
 							<div class="destination_content">
-								<div class="destination_title"><a href="#">{{ values.name }}</a></div>
+								<div class="destination_title"><a href="{% url 'fullview' values.id %}">{{ values.name }}</a></div>
 								<div class="destination_subtitle"><p>{{values.desc}}</p></div>
 								<div class="destination_price">From ${{values.price}}</div>
 								<div class="destination_list">
@@ -369,7 +399,7 @@
 			</div>
 			<div class="row load_more_row">
 				<div class="col">
-					<div class="button load_more_button"><a href="#">load more</a></div>
+<!--					<div class="button load_more_button"><a href="#">load more</a></div>-->
 				</div>
 			</div>
 		</div>

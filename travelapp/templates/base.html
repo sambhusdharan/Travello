@@ -96,7 +96,9 @@
 								</ul>
 
 							</nav>
-<!--							<div class="header_phone ml-auto"><li></li></div>-->
+							{% if request.user.id %}
+							<div class="header_phone ml-auto"> Hi, {{user.username}} </div>
+                            {% endif %}
 
 							<!-- Hamburger -->
 
